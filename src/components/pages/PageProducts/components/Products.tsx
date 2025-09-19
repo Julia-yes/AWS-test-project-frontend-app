@@ -6,10 +6,10 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { formatAsPrice } from "~/utils/utils";
 import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
-import { useAvailableProducts } from "~/queries/products";
+import { useProducts } from "~/queries/products";
 
 export default function Products() {
-  const { data = [], isLoading } = useAvailableProducts();
+  const { data = [], isLoading } = useProducts();
 
   if (isLoading) {
     return <Typography>Loading...</Typography>;
@@ -17,8 +17,9 @@ export default function Products() {
 
   return (
     <Grid container spacing={4}>
+      <Typography paddingTop={4}>Products</Typography>
       {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
-      {data.map(({ count, ...product }, index) => (
+      {data.map(({ ...product }, index) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card
             sx={{ height: "100%", display: "flex", flexDirection: "column" }}
