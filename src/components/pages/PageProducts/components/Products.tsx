@@ -17,7 +17,6 @@ export default function Products() {
 
   return (
     <Grid container spacing={4}>
-      <Typography paddingTop={4}>Products</Typography>
       {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
       {data.map(({ ...product }, index) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
